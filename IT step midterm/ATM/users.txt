@@ -1,0 +1,5 @@
+Id:62002007259,Name:Levan,Surname:Pangni,Balance:100267
+Id:62002007258,Name:Luka,Surname:Pangni,Balance:200300
+Id:62002007257,Name:Nino,Surname:Pangni,Balance3100000
+Id:62002007256,Name:Girogi,Surname:Pangni,Balance:400000
+Id:62002007255,Name:Petre,Surname:Pangni,Balance:500000
