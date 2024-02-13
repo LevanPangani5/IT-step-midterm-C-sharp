@@ -117,7 +117,7 @@ namespace IT_step_midterm.Student_Admin
             return true;
 
         }
-
+        //updates user's grade with spescified roll number
         private void UpdateStudentGrade(int rollNumber, char grade)
         {
             var studnet = Students.Find(student => student.RollNumber == rollNumber);
@@ -138,7 +138,7 @@ namespace IT_step_midterm.Student_Admin
             Students.RemoveAll(student => student.RollNumber == rollNumber);
             Console.WriteLine($"student with roll number: {rollNumber} was removed");
         }
-        //validates title and author
+        //gets and validates user input for name
         private string EnterName()
         {
             string Id;
@@ -151,7 +151,7 @@ namespace IT_step_midterm.Student_Admin
             } while (!IdRegex.IsMatch(Id));
             return Id;
         }
-        //validates publish year
+        //gets and valiates user input for roll number
         private int EnterRollNumber()
         {
             int value = -1;
@@ -170,7 +170,7 @@ namespace IT_step_midterm.Student_Admin
             }
             return value;
         }
-
+        //gets and validates user input for grade
         private char EnterGrade()
         {
             char grade='_';

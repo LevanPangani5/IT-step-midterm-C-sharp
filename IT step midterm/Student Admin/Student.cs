@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IT_step_midterm.Student_Admin
-{
+{   //student class
     public class Student
     {
         public string Name { get; private set; }
@@ -24,6 +24,7 @@ namespace IT_step_midterm.Student_Admin
             Console.WriteLine($"{Name}'s grade is updated from {Grade} to {grade}");
             Grade = grade;
         }
+        
         public override string ToString()
         {
             return $"Roll: {RollNumber}, Name: {Name}, Grade: {Grade}";

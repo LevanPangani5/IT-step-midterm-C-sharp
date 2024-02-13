@@ -124,7 +124,7 @@ namespace IT_step_midterm.Book_Admin
             Books.RemoveAll(book => book.Title == title);
             Console.WriteLine($"Any book with title: {title} was removed");
         }
-        //validates title and author
+        //gets and validates user input for book title
         private string EnterTitle()
         {
             string Id;
@@ -137,7 +137,7 @@ namespace IT_step_midterm.Book_Admin
             } while (!IdRegex.IsMatch(Id));
             return Id;
         }
-
+        //gets and validates user input for Author name
         private string EnterAuthor()
         {
             string Id;
@@ -150,7 +150,7 @@ namespace IT_step_midterm.Book_Admin
             } while (!IdRegex.IsMatch(Id));
             return Id;
         }
-        //validates publish year
+        //gets and validates user input for publish year
         private int EnterYear()
         {  
             int value = -1;
@@ -159,6 +159,7 @@ namespace IT_step_midterm.Book_Admin
             {
                 Console.Write("Enter valid year of publish: ");
                 if(int.TryParse(Console.ReadLine(), out value)){
+                    //value can't be lower than 900 and greater than current year
                     if(value !<900 && value <= DateTime.Now.Year)
                     {
                         return value;
