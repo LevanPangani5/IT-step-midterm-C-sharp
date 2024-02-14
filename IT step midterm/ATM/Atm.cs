@@ -39,7 +39,7 @@ namespace IT_step_midterm.ATM
                 Console.WriteLine("1 - view balance");
                 Console.WriteLine("2 - Withdraw");
                 Console.WriteLine("3 - Deposit");
-                Console.Write("4 - Transfer");
+                Console.WriteLine("4 - Transfer");
                 Console.WriteLine("5 - stop the program");
                 option = Console.ReadKey(true).KeyChar;
                 Console.Write("\n");
