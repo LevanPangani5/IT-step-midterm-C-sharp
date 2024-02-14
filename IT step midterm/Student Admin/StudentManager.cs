@@ -19,11 +19,11 @@ namespace IT_step_midterm.Student_Admin
 
         public void RunStudentManager()
         {
-            char[] options = { '1', '2', '3', '4' };
+            char[] options = { '1', '2', '3', '4', '5' ,'6' };
             char option;
             ConsoleKeyInfo keyInfo = new();
 
-            Console.WriteLine("");
+            Console.WriteLine("## Student Managment ##");
             //offers user stuent managment funtionality
             do
             {
@@ -31,22 +31,23 @@ namespace IT_step_midterm.Student_Admin
                 Console.WriteLine("1 - Add a student");
                 Console.WriteLine("2 - View all the students");
                 Console.WriteLine("3 - Find student by roll number");
-                Console.Write("4 - Edit student grade");
-                Console.Write("5 - delete student by Roll number");
-
+                Console.WriteLine("4 - Edit student grade");
+                Console.WriteLine("5 - Delete student by Roll number");
+                Console.WriteLine("6 - stop the program");
                 option = Console.ReadKey(true).KeyChar;
-                Console.Write("\n\n");
+                Console.Write("\n");
                 if (!options.Contains(option))
                 {
                     Console.WriteLine("Invalid option try again");
                     continue;
                 }
-                RunOperation(option);
-
-                Console.Write("\n\nIf you want to colse menu click tab\nClick any other key to continue: ");
-                keyInfo = Console.ReadKey(true);
+                if(option == '6')
+                {
+                    break;
+                }
+                RunOperation(option);             
                 Console.Write("\n");
-            } while (keyInfo.Key != ConsoleKey.Tab);
+            } while(true);
         }
         //runs operation that user has chosen
         private void RunOperation(char option)
@@ -55,6 +56,7 @@ namespace IT_step_midterm.Student_Admin
             {
                 case '1':
                     {
+                        Console.WriteLine("Add a students: ");
                         string title = EnterName();
                         char grade = EnterGrade();
                         int rollNumber = EnterRollNumber();
@@ -63,17 +65,20 @@ namespace IT_step_midterm.Student_Admin
                     }
                 case '2':
                     {
+                        Console.WriteLine("Get All the students: ");
                         GetStudents();
                         break;
                     }
                 case '3':
                     {
+                        Console.WriteLine("Get students by roll number: ");
                         int rollNumber = EnterRollNumber();
                         GetStudent(rollNumber);
                         break;
                     }
                 case '4':
                     {
+                        Console.WriteLine("Update student: ");
                         int rollNumber = EnterRollNumber();
                         char grade = EnterGrade();
                         UpdateStudentGrade(rollNumber,grade);
@@ -81,6 +86,7 @@ namespace IT_step_midterm.Student_Admin
                     }
                 default:
                     {
+                        Console.WriteLine("Delete user: ");
                         int rollNumber = EnterRollNumber();
                         DeleteByRollNumber(rollNumber);
                         break;
@@ -93,14 +99,14 @@ namespace IT_step_midterm.Student_Admin
         {
             Student student = new(name, roll, grade);
             Students.Add(student);
-            Console.WriteLine($"new student was added: {student.ToString}");
+            Console.WriteLine($"new student was added: {student}");
             return student;
         }
         //prints all the students
         private void GetStudents()
         {
             Console.WriteLine($"View All the students({Students.Count}): ");
-            Students.ForEach(student => student.ToString());
+            Students.ForEach(student => Console.WriteLine(student));
         }
         
         //get student by Roll number
@@ -113,7 +119,7 @@ namespace IT_step_midterm.Student_Admin
                 return false;
             }
             Console.WriteLine("Found student By this roll number: ");
-            Console.WriteLine(studnet?.ToString());
+            Console.WriteLine(studnet);
             return true;
 
         }
@@ -128,7 +134,7 @@ namespace IT_step_midterm.Student_Admin
             }
             studnet.EditGrade(grade);
             Console.WriteLine("Student's grade was updated");
-            Console.WriteLine(studnet?.ToString());
+            Console.WriteLine(studnet);
             return;
         }
 
@@ -177,19 +183,16 @@ namespace IT_step_midterm.Student_Admin
             bool isValid = false;
             while (!isValid)
             {
-                Console.Write($"Enter a valid grade ({string.Join(", ", Grades)})");
+                Console.Write($"Enter a valid grade ({string.Join(", ", Grades)}): ");
                 grade = Console.ReadKey().KeyChar;
-                
+                Console.Write("\n");
                 if (Grades.Contains(grade))
                 {
                    return grade;
                 }
-                Console.Write("\n");
             }
             return grade;
         }
     }
-
-
 }
 

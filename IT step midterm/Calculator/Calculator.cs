@@ -14,6 +14,7 @@ namespace IT_step_midterm.Calculator
             double? argA = null;
             double? argB = null;
             char? operation = null;
+            Console.WriteLine("## Calculator ##");
             while (true)
             {
                 try

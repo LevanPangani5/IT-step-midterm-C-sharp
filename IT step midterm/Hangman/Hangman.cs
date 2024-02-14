@@ -4,10 +4,11 @@ namespace IT_step_midterm.Hangman
     public class Hangman
     {  
         //starts the game
-        public static void StartHangman()
+        public static void RunHangman()
         {
             string word;
             ConsoleKeyInfo keyInfo;
+            Console.WriteLine("## Hangman game ##");
             do
             {
                 word = GetRandomWord();

@@ -25,12 +25,12 @@ namespace IT_step_midterm.ATM
         //program starting point
         public void RunAtm()
         {
-            char[] options = { '1', '2', '3', '4' };
+            char[] options = { '1', '2', '3', '4','5' };
             char option;
             ConsoleKeyInfo keyInfo =new();
             //saves users Prsonal ID before offering other functinality
             string Id = EnterId();
-            Console.WriteLine("");
+            Console.WriteLine("## ATM ##");
             //offers user ATM funtionality
             do
             {
@@ -40,20 +40,21 @@ namespace IT_step_midterm.ATM
                 Console.WriteLine("2 - Withdraw");
                 Console.WriteLine("3 - Deposit");
                 Console.Write("4 - Transfer");
-
+                Console.WriteLine("5 - stop the program");
                 option = Console.ReadKey(true).KeyChar;
-                Console.Write("\n\n");
+                Console.Write("\n");
                 if (!options.Contains(option))
                 {
                     Console.WriteLine("Invalid option try again");
                     continue;
                 }
-                RunOperation(Id, option);
-                 
-                Console.Write("\n\nIf you want to colse menu click tab\n click any other key to continue: ");
-                keyInfo = Console.ReadKey(true);
+                if(option == '5')
+                {
+                    break;
+                }
+                RunOperation(Id, option);                            
                 Console.Write("\n");
-            } while (keyInfo.Key != ConsoleKey.Tab);
+            } while (true);
         }
         //excecutes specified operations
         public void RunOperation(string Id, char option)
@@ -62,23 +63,27 @@ namespace IT_step_midterm.ATM
             {
                 case '1':
                     {
+                        Console.WriteLine("View balance: ");
                         ViewBalance(Id);
                         break;
                     }
                 case '2':
                     {
+                        Console.WriteLine("Withdraw money: ");
                         double money = EnterMoney();
                         WithdrawMoney(Id, money);
                         break;
                     }
                 case '3':
                     {
+                        Console.WriteLine("Deposit money: ");
                         double money = EnterMoney();
                         DepositMoney(Id, money);
                         break;
                     }
                 default:
                     {
+                        Console.WriteLine("Transfer money: ");
                         string receiver = EnterId();
                         double money = EnterMoney();
                         TransferMoney(Id, receiver, money);

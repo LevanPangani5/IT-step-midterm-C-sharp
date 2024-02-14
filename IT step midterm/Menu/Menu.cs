@@ -13,7 +13,7 @@ namespace IT_step_midterm.Menu
         //runs manue program , it lets user to interact with all the other proograms
         public static void RunMenu()
         {   //options for different programs
-            char[] options = { '1', '2', '3', '4','5','6' };
+            char[] options = { '1', '2', '3', '4','5','6','7' };
             char option;
             ConsoleKeyInfo keyInfo = new();
             do
@@ -25,20 +25,21 @@ namespace IT_step_midterm.Menu
                 Console.WriteLine("4 - Calculator");
                 Console.WriteLine("5 - Book Managment");
                 Console.WriteLine("6 - Student Managment");
-
+                Console.WriteLine("7 - Stop the program");
                 option = Console.ReadKey(true).KeyChar;
-                Console.Write("\n\n");
+                Console.Write("\n");
                 if (!options.Contains(option))
                 {
                     Console.WriteLine("Invalid option try again");
                     continue;
                 }
-                RunOperation(option);
-
-                Console.Write("If you want to colse menu click tab\n click any other key to continue: ");
-                keyInfo = Console.ReadKey(true);
+                if(option == '7')
+                {
+                    break;
+                }
+                RunOperation(option);           
                 Console.Write("\n");
-            } while (keyInfo.Key != ConsoleKey.Tab);
+            } while (true);
         }
         //logic to run program chosen by the user
         private static void RunOperation(char option)
@@ -46,13 +47,13 @@ namespace IT_step_midterm.Menu
             switch (option)
             {
                 case '1':
-                    {
+                    {   
                         atm.RunAtm();
                         break;
                     }
                 case '2':
                     {
-                        Hangman.Hangman.StartHangman();
+                        Hangman.Hangman.RunHangman();
 
                         break;
                     }

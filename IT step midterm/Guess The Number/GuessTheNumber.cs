@@ -7,6 +7,7 @@
         {
             int number;
             ConsoleKeyInfo keyInfo;
+            Console.WriteLine("## Guess the number ##");
             do
             {   //random namber
                 number = GenerateNumber();
@@ -23,7 +24,8 @@
         {
             int guess;
             int attempts = 0;
-            ConsoleKeyInfo? keyInfo = null;
+            ConsoleKeyInfo keyInfo = new();
+            
             Console.Write("Guess a number: ");
             do
             {     //validates user input
@@ -49,9 +51,9 @@
                     Console.Write("\n");
                 }
                 //loop does not stop until user gives up or guess the number
-            } while (guess != number && keyInfo?.Key != ConsoleKey.Y);
+            } while (guess != number && keyInfo.Key != ConsoleKey.Y);
             //displays final statistics
-            if (keyInfo != null)
+            if (keyInfo.Key == ConsoleKey.Y)
             {
                 Console.WriteLine("You've Lost :(");
             }
