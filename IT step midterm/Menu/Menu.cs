@@ -2,6 +2,7 @@
 using IT_step_midterm.Guess_The_Number;
 using IT_step_midterm.Book_Admin;
 using IT_step_midterm.Student_Admin;
+using IT_step_midterm.New_ATM;
 
 namespace IT_step_midterm.Menu
 {
@@ -10,10 +11,11 @@ namespace IT_step_midterm.Menu
         private static Atm atm = new();
         private static BookManager bookMAnager=new();
         private static StudentManager studentManager = new();
+        private static NewAtm newAtm = new();
         //runs manue program , it lets user to interact with all the other proograms
         public static void RunMenu()
         {   //options for different programs
-            char[] options = { '1', '2', '3', '4','5','6','7' };
+            char[] options = { '1', '2', '3', '4','5','6','7','8' };
             char option;
             ConsoleKeyInfo keyInfo = new();
             do
@@ -25,7 +27,8 @@ namespace IT_step_midterm.Menu
                 Console.WriteLine("4 - Calculator");
                 Console.WriteLine("5 - Book Managment");
                 Console.WriteLine("6 - Student Managment");
-                Console.WriteLine("7 - Stop the program");
+                Console.WriteLine("7 - New ATM");
+                Console.WriteLine("8 - Stop the program");
                 option = Console.ReadKey(true).KeyChar;
                 Console.Write("\n");
                 if (!options.Contains(option))
@@ -33,7 +36,7 @@ namespace IT_step_midterm.Menu
                     Console.WriteLine("Invalid option try again");
                     continue;
                 }
-                if(option == '7')
+                if(option == '8')
                 {
                     break;
                 }
@@ -75,6 +78,11 @@ namespace IT_step_midterm.Menu
                 case '6':
                     {
                         studentManager.RunStudentManager();
+                        break;
+                    }
+                case '7':
+                    {
+                        newAtm.RunAtm();
                         break;
                     }
             }

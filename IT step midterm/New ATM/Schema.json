@@ -1,0 +1,11 @@
+﻿{
+  "firstName": "",
+  "lastName": "",
+  "cardDetails": {
+    "cardNumber": "",
+    "expirationDate": "",
+    "CVC": ""
+  },
+  "pinCode": "",
+  "transactionHistory": []
+}
