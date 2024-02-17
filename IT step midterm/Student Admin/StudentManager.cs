@@ -21,7 +21,6 @@ namespace IT_step_midterm.Student_Admin
         {
             char[] options = { '1', '2', '3', '4', '5' ,'6' };
             char option;
-            ConsoleKeyInfo keyInfo = new();
 
             Console.WriteLine("## Student Managment ##");
             //offers user stuent managment funtionality

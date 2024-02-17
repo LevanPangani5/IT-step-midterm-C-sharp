@@ -17,7 +17,6 @@ namespace IT_step_midterm.Menu
         {   //options for different programs
             char[] options = { '1', '2', '3', '4','5','6','7','8' };
             char option;
-            ConsoleKeyInfo keyInfo = new();
             do
             {
                 Console.WriteLine("Choose coresponding number for desired functinality: ");

@@ -27,7 +27,6 @@ namespace IT_step_midterm.ATM
         {
             char[] options = { '1', '2', '3', '4','5' };
             char option;
-            ConsoleKeyInfo keyInfo =new();
             //saves users Prsonal ID before offering other functinality
             string Id = EnterId();
             Console.WriteLine("## ATM ##");

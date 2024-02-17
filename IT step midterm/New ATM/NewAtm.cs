@@ -9,7 +9,7 @@ namespace IT_step_midterm.New_ATM
         //name of the file where users datas are saved
         List<string> fileNames;
         //folder path which holds users information
-        private readonly string folderPath = "C:/me/projects/sweeft/IT step midterm/IT step midterm/New ATM/Data";
+        private readonly string folderPath = "C:/me/projects/sweeft/IT step midterm/IT step midterm/New ATM/Data/";
         private string filePath;
         public NewAtm()
         {
