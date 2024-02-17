@@ -9,6 +9,16 @@
   "pinCode": "1326",
   "transactionHistory": [
     {
+      "transactionDate": "2024-02-17T23:18:29.8590234+04:00",
+      "transactionType": "Deposit",
+      "amountGEL": 8.0
+    },
+    {
+      "transactionDate": "2024-02-17T23:02:42.0600955+04:00",
+      "transactionType": "Deposit",
+      "amountGEL": 7.0
+    },
+    {
       "transactionDate": "2024-02-17T21:02:22.5800364+04:00",
       "transactionType": "Deposit",
       "amountGEL": 5.0

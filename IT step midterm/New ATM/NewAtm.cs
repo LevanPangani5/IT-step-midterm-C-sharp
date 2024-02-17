@@ -76,8 +76,8 @@ namespace IT_step_midterm.New_ATM
             {
                 case '1':
                     {
-                        Console.WriteLine("View balance: ");
-                        ViewBalance();
+                       
+                        Console.WriteLine($"Your balance is: {ViewBalance()}");
                         break;
                     }
                 case '2':
@@ -106,10 +106,8 @@ namespace IT_step_midterm.New_ATM
                     }
                 case '6':
                     {
-
                         Console.WriteLine("Transfer money");
-                        Console.WriteLine("Enter Reciver's card number: ");
-                        string receiver = EnterNum("Card number", 16);
+                        string receiver = EnterNum("Enter Reciver's card number", 16);
                         double money = EnterMoney();
                         Transfer(money, receiver);
 
@@ -325,13 +323,12 @@ namespace IT_step_midterm.New_ATM
             }
         }
         //view user balance, or reciver's
-        private double ViewBalance(JObject? data = null)
+         private double ViewBalance(JObject? data = null)
         {
             data ??= userData;
             JArray? transactions = (JArray)data["transactionHistory"]!;
 
             var balance = transactions[0]["amountGEL"];
-            Console.WriteLine("Your balace is: " + balance);
             return double.Parse(balance!.ToString());
         }
         //logic for withdrawing money
@@ -397,7 +394,7 @@ namespace IT_step_midterm.New_ATM
                     break;
                 }
                 else
-                {
+                {   //allow ony three attemps at one go
                     tries++;
                     if (tries >= 4)
                     {
@@ -413,11 +410,12 @@ namespace IT_step_midterm.New_ATM
             Console.WriteLine("choose a new pin");
             string newPin = EnterNum("PIN", 4);
             userData["pinCode"] = newPin;
-            RunTransaction("changePin", ViewBalance());
-            Save();
-            Console.WriteLine("Pin was updated");
+            if(RunTransaction("changePin", ViewBalance()))
+            {
+                Console.WriteLine("Pin was updated");
+            }          
         }
-        //loggic for transfering money to other user
+
         private void Transfer(double money, string reciever)
         {
             string? fileName = FindFile(reciever);
@@ -442,21 +440,19 @@ namespace IT_step_midterm.New_ATM
             }
             double recieverBalance = ViewBalance(data);
             recieverBalance += money;
-            JArray? transactions = (JArray)data!["transactionHistory"]!;
 
-            JObject newTransaction = CreateTransactionObj("Deposit", recieverBalance);
-            if (transactions.Count == 5)
-            {
-                transactions.Last.Remove();
-            }
-            transactions.Insert(0, newTransaction);
-
-            Save(reciverPath, data);
+            RunTransaction("Deposit", recieverBalance, ref data, reciverPath);
+            Console.WriteLine($"Transfered {money} to {reciever} succesfully");
         }
+
         //adding transaction to transactionHistory and saving it
-        private bool RunTransaction(string transactionType, double balance, JObject? data = null)
+        private bool RunTransaction(string transactionType, double money)
         {
-            data ??= userData;
+            return RunTransaction(transactionType, money, ref userData);
+        }
+        //for transfer
+        private bool RunTransaction(string transactionType, double balance, ref JObject data, string? filePath = null)
+        {
             JObject newTransaction = CreateTransactionObj(transactionType, balance);
             JArray? transactions = (JArray)data["transactionHistory"]!;
 
@@ -466,7 +462,7 @@ namespace IT_step_midterm.New_ATM
             }
             transactions.Insert(0, newTransaction);
 
-            if (Save())
+            if (Save(ref data, filePath))
             {
                 return true;
             }
@@ -488,10 +484,9 @@ namespace IT_step_midterm.New_ATM
         }
 
         //functinality for saving changes in the file
-        private bool Save(string? fileFullPath = null, JObject? data = null)
+        private bool Save(ref JObject data, string? fileFullPath = null)
         {
             fileFullPath ??= filePath;
-            data ??= userData;
             try
             {
                 File.WriteAllText(fileFullPath, data.ToString());

@@ -9,6 +9,16 @@
   "pinCode": "1234",
   "transactionHistory": [
     {
+      "transactionDate": "2024-02-17T23:18:29.8056725+04:00",
+      "transactionType": "Withdraw",
+      "amountGEL": 3197.0
+    },
+    {
+      "transactionDate": "2024-02-17T23:02:41.9914296+04:00",
+      "transactionType": "Withdraw",
+      "amountGEL": 3198.0
+    },
+    {
       "transactionDate": "2024-02-17T21:02:22.5788308+04:00",
       "transactionType": "Withdraw",
       "amountGEL": 3200.0
@@ -22,16 +32,6 @@
       "transactionDate": "2024-02-17T21:01:33.1428323+04:00",
       "transactionType": "Deposit",
       "amountGEL": 3125.0
-    },
-    {
-      "transactionDate": "2024-02-17T20:27:52.6343832+04:00",
-      "transactionType": "Withdraw",
-      "amountGEL": 3025.0
-    },
-    {
-      "transactionDate": "2024-02-17T20:25:10.2639699+04:00",
-      "transactionType": "Withdraw",
-      "amountGEL": 3048.0
     }
   ]
 }
