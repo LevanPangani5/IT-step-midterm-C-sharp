@@ -9,6 +9,11 @@
   "pinCode": "8461",
   "transactionHistory": [
     {
+      "transactionDate": "2024-02-27T19:49:36.7483883+04:00",
+      "transactionType": "Deposit",
+      "amountGEL": 3583.0
+    },
+    {
       "transactionDate": "2024-02-17T20:27:52.6865516+04:00",
       "transactionType": "Deposit",
       "amountGEL": 3083.0
@@ -27,11 +32,6 @@
       "transactionDate": "2024-02-17T20:19:00.8406921+04:00",
       "transactionType": "Deposit",
       "amountGEL": 2049.0
-    },
-    {
-      "transactionDate": "2024-02-17T18:37:41.7113849+04:00",
-      "transactionType": "Deposit",
-      "amountGEL": 2149.0
     }
   ]
 }

@@ -94,8 +94,14 @@ namespace IT_step_midterm.Student_Admin
             }
         }
         //adds student to student list
-        private Student AddStudent(string name,int roll,char grade)
+        private Student? AddStudent(string name,int roll,char grade)
         {
+            var isUnique = Students.Find(student => student.RollNumber == roll);
+            if (isUnique != null)
+            {
+                return null;
+            }
+
             Student student = new(name, roll, grade);
             Students.Add(student);
             Console.WriteLine($"new student was added: {student}");
@@ -163,18 +169,16 @@ namespace IT_step_midterm.Student_Admin
             bool isValid = false;
             while (!isValid)
             {
-                Console.Write("Enter unique roll number: ");
+                Console.Write("Enter existing roll number: ");
                 if (int.TryParse(Console.ReadLine(), out value))
-                {
-                    if (value>0 && Students.Find(student=>student.RollNumber== value)==null)
-                    {
-                        return value;
-                    }
+                {            
+                    return value; 
                 }
                 Console.Write("\n");
             }
             return value;
         }
+
         //gets and validates user input for grade
         private char EnterGrade()
         {

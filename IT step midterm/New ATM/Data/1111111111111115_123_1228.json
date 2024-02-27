@@ -1,0 +1,32 @@
+{
+  "firstName": "firstName",
+  "lastName": "lastName",
+  "cardDetails": {
+    "cardNumber": "1111111111111115",
+    "expirationDate": "12/28",
+    "CVC": "123"
+  },
+  "pinCode": "1234",
+  "transactionHistory": [
+    {
+      "transactionDate": "2024-02-27T19:50:22.7758487+04:00",
+      "transactionType": "changePin",
+      "amountGEL": 9500.0
+    },
+    {
+      "transactionDate": "2024-02-27T19:49:36.7466654+04:00",
+      "transactionType": "Withdraw",
+      "amountGEL": 9500.0
+    },
+    {
+      "transactionDate": "2024-02-27T19:48:26.3326165+04:00",
+      "transactionType": "Withdraw",
+      "amountGEL": 10000.0
+    },
+    {
+      "transactionDate": "2024-02-27T19:46:44.7296509+04:00",
+      "transactionType": "register",
+      "amountGEL": 0
+    }
+  ]
+}

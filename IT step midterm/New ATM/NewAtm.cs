@@ -18,7 +18,6 @@ namespace IT_step_midterm.New_ATM
             {    //loop over directoy to get names of the files
                 foreach (var file in Directory.GetFiles(folderPath))
                 {
-                    Console.WriteLine(Path.GetFileName(file));
                     fileNames.Add(Path.GetFileName(file));
                 }
             }
@@ -165,7 +164,7 @@ namespace IT_step_midterm.New_ATM
                 //check if card number is already used
                 if (data == null)
                 {   //get the schema to creat file for new user
-                    data = GetUserData("C:/me/projects/sweeft/IT step midterm/IT step midterm/New ATM/Shema.json");
+                    data = GetUserData("C:/me/projects/sweeft/IT step midterm/IT step midterm/New ATM/Schema.json");
                     Console.WriteLine(data);
                     if (data == null)
                         break;

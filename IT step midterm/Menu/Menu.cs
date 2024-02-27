@@ -20,7 +20,7 @@ namespace IT_step_midterm.Menu
             do
             {
                 Console.WriteLine("Choose coresponding number for desired functinality: ");
-                Console.WriteLine("1 - ATM");
+                Console.WriteLine("1 - ATM(deprecated*)");
                 Console.WriteLine("2 - Hangman");
                 Console.WriteLine("3 - Guess the number");
                 Console.WriteLine("4 - Calculator");
